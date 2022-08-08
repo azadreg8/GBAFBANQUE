@@ -36,10 +36,10 @@ else
                     ?>
                     
                 </button>    
-                <button class="bouton_parametre"><a href='parametres.php';> Paramètres du compte 
+                <button class="bouton_parametre"><a href='parametres.php'> Paramètres du compte</a>
                 </button> >
                 
-                <button class="bouton_deconnexion"><a href='page_deconnexion.php';> Déconnexion
+                <button class="bouton_deconnexion"><a href='page_deconnexion.php'> Déconnexion</a>
                 </button> 
                     <?php
                     }

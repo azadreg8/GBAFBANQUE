@@ -45,7 +45,7 @@ require_once("include/header.php");
 							echo '<h2>' . $donnees['acteur'] . '</h2>';
 							echo substr($donnees['description'], 0, 100).'...'; 
 						?>
-						<button class="bouton_suite"><a href='acteur.php?id=<?php echo $donnees['id_acteur']; ?>';>Afficher la suite
+						<button class="bouton_suite"><a href='acteur.php?id=<?php echo $donnees['id_acteur']; ?>';>Afficher la suite</a>
 						</button> 
 					</div>	
 				</div>	
