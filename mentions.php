@@ -20,3 +20,4 @@ require_once("include/header_public.php");
            
 <?php 
 require_once('include/footer.php') 
+?>
