@@ -19,28 +19,27 @@ if(isset($_GET['t'], $_GET['id'], $_SESSION['id_user']) AND !empty($_GET['t']) A
     // Si le tableau stocké dans $check possède 1 ligne -> l'acteur existe
     if($check->rowCount() == 1) 
     {
-     // 1 -> like
-    if($gett == 1) 
+        // 1 -> like
+        if($gett == 1) 
         {   
             // Vérifie si l'utilisateur de la session a déjà liké l'acteur      
-     $check_like = $bdd->prepare('SELECT id_like FROM likes WHERE acteur_id = ? AND user_id = ?');
-     $check_like->execute(array($getid, $sessionid));
+            $check_like = $bdd->prepare('SELECT id_like FROM likes WHERE acteur_id = ? AND user_id = ?');
+            $check_like->execute(array($getid, $sessionid));
             // Si l'utilisateur a disliké l'acteur, on supprime le dislike
-            
-    $deldislike = $bdd->prepare('DELETE FROM dislikes WHERE acteur_id = ? AND user_id = ?');
-    $deldislike->execute(array($getid, $sessionid));
+            $deldislike = $bdd->prepare('DELETE FROM dislikes WHERE acteur_id = ? AND user_id = ?');
+            $deldislike->execute(array($getid, $sessionid));
             
             // S'il y a déjà un like, on le supprime
-    if($check_like->rowCount() == 1) 
+            if($check_like->rowCount() == 1) 
             { 
-     $dellike = $bdd->prepare('DELETE FROM likes WHERE acteur_id = ? AND user_id = ?');
-     $dellike->execute(array($getid, $sessionid));
+                $dellike = $bdd->prepare('DELETE FROM likes WHERE acteur_id = ? AND user_id = ?');
+                $dellike->execute(array($getid, $sessionid));
             }
             // S'il n'y a pas de like, on l'ajoute 
             else 
             {
-    $ins = $bdd->prepare('INSERT INTO likes (acteur_id, user_id) VALUES (?, ?)');
-     $ins->execute(array($getid, $sessionid));
+                $ins = $bdd->prepare('INSERT INTO likes (acteur_id, user_id) VALUES (?, ?)');
+                $ins->execute(array($getid, $sessionid));
             }
         } 
         // 2 -> dislike
@@ -78,3 +77,4 @@ else
 {
     exit('Erreur Fatale. <a href="index_user.php">Revenir à la page d\'accueil</a>');
 }
+?>
