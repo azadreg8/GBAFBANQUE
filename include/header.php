@@ -26,7 +26,7 @@ else
        
         <a href="index_user.php">
             <div class="logo">
-                <img class="logo" src="img/logogbaf.png" alt="logo" />
+                <img class="logo" src="img/logogbaf.png" alt="logo"/>
                 </div>
             </a>
             <div id="nomsession"><!-- affiche nom prénom sess --> 
@@ -36,10 +36,10 @@ else
                     ?>
                     
                 </button>    
-                <button class="bouton_parametre"><a href='parametres.php';> Paramètres du compte 
-                </button> >
+                <button class="bouton_parametre"><a href='parametres.php';> Paramètres du compte</a>
+                </button> 
                 
-                <button class="bouton_deconnexion"><a href='page_deconnexion.php';> Déconnexion
+                <button class="bouton_deconnexion"><a href='page_deconnexion.php';> Déconnexion</a>
                 </button> 
                     <?php
                     }

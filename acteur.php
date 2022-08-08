@@ -57,14 +57,14 @@ if(isset($_GET['id']) && !empty($_GET['id']))
 
                     <!-- Bouton Like -->
                     <div class="vote_boutons">
-                        <button class="vote_bouton" name="vote" value="like"><a href='action.php?t=1&id=<?= $id; ?>';>
+                        <button class="vote_bouton" name="vote" value="like"><a href='action.php?t=1&id=<?= $id;?>';>
                         <img class="iconlike" src="img/like.png" alt="like" style="cursor:pointer">
                         (<?= $likes?>)
                         </button>
 
                     <!-- Bouton Dislike -->
                     <div class="vote_boutons">
-                        <button class="vote_bouton" name="vote" value="dislike"><a href='action.php?t=2&id=<?= $id; ?>';>
+                        <button class="vote_bouton" name="vote" value="dislike"><a href='action.php?t=2&id=<?= $id;?>';>
                         <img class="iconlike" src="img/dislike.png" alt="dislike" style="cursor:pointer">
                         (<?= $dislikes?>)
                         </button>
