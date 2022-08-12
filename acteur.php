@@ -92,7 +92,7 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                     </div>
                 </div>
                 
-   
+     </section> 
 
             <!-- Affichage des comm -->
             <div class="affichage_comm">
@@ -118,6 +118,6 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                 $req->closeCursor();    
                 ?>
         </div>
-    </section>                    
+                      
 <?php 
     require_once('include/footer.php'); 
