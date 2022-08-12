@@ -3,6 +3,8 @@ session_start();
 $title = 'Acteur';
 require("include/connecbdd.php");
 require_once("include/header.php");
+if (!isset($_SESSION['id_user'])) 
+header("Location: page_connexion.php");
 ?>
 
 <?php
@@ -23,9 +25,10 @@ if(isset($_GET['id']) && !empty($_GET['id']))
 
     }
 ?>
-            <!-- Presentation acteur -->
-           
-            <div class="bloc_description">
+          
+    <section>  
+     <!-- Presentation acteur -->
+               <div class="bloc_description">
                 <div class="bloc_logoacteur">
            
                 <img class="logoacteur" src="<?php echo $donnees['logo']; ?>" alt="logo_acteur"/> <br/><br/>
@@ -36,10 +39,12 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                         echo $donnees['description'];
                     ?>
                 </div>
-            </div>
-            <!-- Section commentaire -->
-            <div id="bloc_commentaire">
-                <div class="vote">
+    </section>           
+   
+    <section>
+    <!-- Section commentaire -->
+            <div class="bloc_commentaire">
+                    <div class="vote">
                     <?php 
                     // Compter le nombre de commentaires 
                         $nbr_comm = $bdd->prepare('SELECT COUNT(comment) as countcomment FROM comments WHERE acteur_id =:id_acteur');
@@ -55,7 +60,9 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                     <div class="vote_boutons"> 
                         <button class="bouton_comm"><a href='commentaire_post.php?id=<?= $_GET['id']?>';>Nouveau commentaire</a></button>
 
-                    <!-- Bouton Like -->
+
+
+                    <!-- section Bouton Like -->
                     <div class="vote_boutons">
                         <button class="vote_bouton" name="vote" value="like"><a href='action.php?t=1&id=<?= $id; ?>';>
                         <img class="iconlike" src="img/like.png" alt="like" style="cursor:pointer">
@@ -65,10 +72,10 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                          $likes_array = $check_like->fetchAll();
                          $likes= count($likes_array);
                          ?>
-                         <?= $likes?>
-                        </button>
+                         <?=$likes ?>
+                         </button>
 
-                    <!-- Bouton Dislike -->
+                    <!-- section Bouton Dislike -->
                     <div class="vote_boutons">
                         <button class="vote_bouton" name="vote" value="dislike"><a href='action.php?t=2&id=<?= $id; ?>';>
                         <img class="iconlike" src="img/dislike.png" alt="dislike" style="cursor:pointer">
@@ -78,14 +85,14 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                          $dislikes_array = $check_dislike->fetchAll();
                          $dislikes= count($dislikes_array);
                          ?>
-                         <?= $dislikes?>
+                         <?=$dislikes ?>
                         </button>
                     </div>
                     </div>
                     </div>
                 </div>
-            </div>
-
+                
+   
 
             <!-- Affichage des comm -->
             <div class="affichage_comm">
@@ -110,6 +117,7 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                 } // Fin de la boucle des commentaires
                 $req->closeCursor();    
                 ?>
-        </div>        
+        </div>
+    </section>                    
 <?php 
     require_once('include/footer.php'); 

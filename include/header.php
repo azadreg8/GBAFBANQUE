@@ -9,7 +9,8 @@ else
 {
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <!-- Header connecté -->
         <head>
              <meta charset="utf-8">
@@ -35,11 +36,10 @@ else
                         echo '<img class="logo" src="img/iconlog.png" alt="logo"/> ' . $_SESSION['nom'] .' '. $_SESSION['prenom'] ;
                     ?>
                     
-                </button>    
-                <button class="bouton_parametre"><a href='parametres.php'> Paramètres du compte</a>
-                </button> >
-                
-                <button class="bouton_deconnexion"><a href='page_deconnexion.php'> Déconnexion</a>
+            </button>
+            <button class="bouton_parametre" onclick= "window.location.href = 'parametres.php';"> Paramètres du compte 
+                </button> 
+                <button class="bouton_deconnexion" onclick= "window.location.href = 'page_deconnexion.php';"> Déconnexion 
                 </button> 
                     <?php
                     }

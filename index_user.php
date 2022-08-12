@@ -3,9 +3,11 @@ session_start();
 $title = 'Accueil Membre';
 require("include/connecbdd.php");
 require_once("include/header.php");
+if (!isset($_SESSION['id_user'])) 
+header("Location: page_connexion.php");
 ?>
-
-		<!-- GBAF  -->
+<article>
+<!-- Presentation de l'article GBAF banque  -->
 		<div id="presentation">
 			<h1> Bienvenue sur l'extranet de GBAF </h1>
 				<p>Le Groupement Banque Assurance Français (GBAF) est une fédération représentant les 6 grands groupes français :<br/><br/>
@@ -20,8 +22,11 @@ require_once("include/header.php");
 				<div id="banniere_image">
 					<img src="img/money.jpg" alt="banniere">
 				</div>
-			</div>
-		<!-- les acteurs -->
+		</div>
+</article>		
+
+<section>
+<!-- blocs de présentation des acteurs -->
 		<div class="separateur">
 		</div>
 		<div id="bloc_acteurs">
@@ -45,7 +50,7 @@ require_once("include/header.php");
 							echo '<h2>' . $donnees['acteur'] . '</h2>';
 							echo substr($donnees['description'], 0, 100).'...'; 
 						?>
-						<button class="bouton_suite"><a href='acteur.php?id=<?php echo $donnees['id_acteur']; ?>';>Afficher la suite</a>
+						<button class="bouton_suite" onclick= "window.location.href='acteur.php?id=<?php echo $donnees['id_acteur']; ?>';">Afficher la suite
 						</button> 
 					</div>	
 				</div>	
@@ -54,6 +59,7 @@ require_once("include/header.php");
 				?>			
 			</div>
 		</div>
+</section>
 <?php 
 require_once('include/footer.php');
 

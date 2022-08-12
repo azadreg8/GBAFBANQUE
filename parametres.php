@@ -4,7 +4,8 @@ $title = 'Paramètres du compte';
 require("include/connecbdd.php");
 require_once("include/header.php");
 
-if(isset($_SESSION['id_user'])) 
+if (!isset($_SESSION['id_user'])) 
+header("Location: page_connexion.php");
 {
    $requser = $bdd->prepare("SELECT * FROM users WHERE id_user = ?");
    $requser->execute(array($_SESSION['id_user']));

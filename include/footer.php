@@ -1,6 +1,3 @@
-	</body>
-</html>  
-
 		<footer>
 	    	<div class="container">
 	    		<address>
@@ -10,4 +7,6 @@
 	            </address>
 	        </div>
 	    </footer>
+	</body>
+</html>  
 	
