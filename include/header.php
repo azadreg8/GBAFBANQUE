@@ -13,7 +13,7 @@ else
 <html lang="fr">
 <!-- Header connecté -->
         <head>
-             <meta charset="utf-8">
+            <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php 
             if(!empty($title))
@@ -22,14 +22,13 @@ else
             <title><?= $title; }?></title>
              <link rel="stylesheet" type="text/css" href="css/style.css">       
         </head>   
-    <body>
-        <header>
-       
+<body>
+    <header>
         <a href="index_user.php">
-            <div class="logo">
+             <div class="logo">
                 <img class="logo" src="img/logogbaf.png" alt="logo" />
-                </div>
-            </a>
+            </div>
+        </a>
             <div id="nomsession"><!-- affiche nom prénom sess --> 
                 <button class="bouton_nom">
                     <?php
@@ -45,5 +44,5 @@ else
                     }
                     ?>
             </div>
-        </header>
+    </header>
     
