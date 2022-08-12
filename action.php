@@ -44,7 +44,7 @@ if(isset($_GET['t'], $_GET['id'], $_SESSION['id_user']) AND !empty($_GET['t']) A
             }
         } 
         // 2 -> dislike
-        elseif ($gett == 1) 
+        elseif ($gett == 2) 
         {
             // Vérifie si l'utilisateur de la session a déjà disliké l'acteur
             $check_like = $bdd->prepare('SELECT id_dislike FROM dislikes WHERE acteur_id = ? AND user_id = ?');
