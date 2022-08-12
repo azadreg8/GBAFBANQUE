@@ -43,7 +43,7 @@ header("Location: page_connexion.php");
 				while($donnees = $req->fetch())
 				{
 				?>	
-				<div class="styleacteur">
+				<article class="styleacteur">
 					<img class="logo_acteur_mini" src="<?php echo $donnees['logo'];?>" alt="acteur_logo_mini"/> <br/>
 					<div class="texteacteur">
 						<?php 
@@ -53,7 +53,7 @@ header("Location: page_connexion.php");
 						<button class="bouton_suite" onclick= "window.location.href='acteur.php?id=<?php echo $donnees['id_acteur']; ?>';">Afficher la suite
 						</button> 
 					</div>	
-				</div>	
+				</article>	
 				<?php 
 				} // Fin b acteur 
 				?>			
