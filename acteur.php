@@ -41,7 +41,7 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                 </div>
     </section>           
    
-    <section>
+    <aside>
     <!-- Section commentaire -->
             <div class="bloc_commentaire">
                     <div class="vote">
@@ -80,7 +80,7 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                         <button class="vote_bouton" name="vote" value="dislike"><a href='action.php?t=2&id=<?= $id; ?>';>
                         <img class="iconlike" src="img/dislike.png" alt="dislike" style="cursor:pointer">
                         <?php
-                         $check_dislike = $bdd->prepare('SELECT id_like FROM likes WHERE acteur_id = ?');
+                         $check_dislike = $bdd->prepare('SELECT id_dislike FROM dislikes WHERE acteur_id = ?');
                          $check_dislike->execute(array($_GET['id']));
                          $dislikes_array = $check_dislike->fetchAll();
                          $dislikes= count($dislikes_array);
@@ -92,8 +92,6 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                     </div>
                 </div>
                 
-     </section> 
-
             <!-- Affichage des comm -->
             <div class="affichage_comm">
                 <?php
@@ -117,7 +115,7 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                 } // Fin de la boucle des commentaires
                 $req->closeCursor();    
                 ?>
-        </div>
+     </aside>
                       
 <?php 
     require_once('include/footer.php'); 
