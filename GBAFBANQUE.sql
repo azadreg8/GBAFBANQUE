@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 08 août 2022 à 15:33
+-- Généré le : ven. 12 août 2022 à 17:06
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -67,7 +67,8 @@ INSERT INTO `comments` (`id_comment`, `user_id`, `acteur_id`, `date_add`, `comme
 (27, 2, 2, '2022-07-26', 'nul Protectpeople'),
 (28, 2, 3, '2022-07-26', 'sans commentaire DSA'),
 (29, 2, 4, '2022-07-26', 'a tester CDE'),
-(30, 8, 1, '2022-08-02', 'ko');
+(30, 8, 1, '2022-08-02', 'ko'),
+(31, 9, 1, '2022-08-11', 'super ceci cool');
 
 -- --------------------------------------------------------
 
@@ -80,6 +81,15 @@ CREATE TABLE `dislikes` (
   `user_id` int(11) NOT NULL,
   `acteur_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `dislikes`
+--
+
+INSERT INTO `dislikes` (`id_dislike`, `user_id`, `acteur_id`) VALUES
+(46, 9, 2),
+(61, 12, 1),
+(64, 9, 3);
 
 -- --------------------------------------------------------
 
@@ -99,13 +109,15 @@ CREATE TABLE `likes` (
 
 INSERT INTO `likes` (`id_like`, `user_id`, `acteur_id`) VALUES
 (67, 8, 3),
-(68, 9, 2),
-(70, 9, 1),
 (71, 9, 4),
 (72, 2, 1),
 (73, 2, 2),
 (74, 2, 3),
-(76, 2, 4);
+(76, 2, 4),
+(79, 9, 1),
+(83, 12, 2),
+(84, 12, 2),
+(90, 12, 3);
 
 -- --------------------------------------------------------
 
@@ -129,8 +141,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `nom`, `prenom`, `username`, `password`, `question_secrete`, `reponse_secrete`) VALUES
 (2, 'regr', 'she', 'azadreg', '$2y$10$7M07zxIjjfF0lJqAaRpAH.EzjRGkwuFR99UsbH1atYDOtBfWXRkYq', 'choix1', 'jenna'),
-(8, 'regragui', 'sheherazade', 'azad', '$2y$10$ypKZpZp7oUgQT4Xl8fRyGeRnTN1Cdsw70QcSlVDYY.fbB0JsX74/S', 'choix1', 'benmassaoud'),
-(9, 'arfaoui', 'jenna', 'jennoh', '$2y$10$TYMPxKDN2sP0bhmgFOV8/OyVNBoRtpyHVo01qS9YX4F2Xo9F1mlnG', 'choix1', 'regragui');
+(8, 'regragui', 'stephane', 'steph', '$2y$10$nMdzRlE5l6ihWFXCJbCP7.nsfHDkJv/B9mI4Z.8td9/KJ9E0Fv51O', 'choix2', 'iphone'),
+(9, 'arfaoui', 'jenna', 'jennoh', '$2y$10$TYMPxKDN2sP0bhmgFOV8/OyVNBoRtpyHVo01qS9YX4F2Xo9F1mlnG', 'choix1', 'regragui'),
+(10, 'dubois', 'amandine', 'amandinedubois', '$2y$10$sfYxQCJNc/7P3n3oKkD9EOicQQCkyH6xUy12BqVO0KvVyK3jpuqyi', 'choix1', 'dubois'),
+(11, 'arfaoui', 'amin', 'mino', '$2y$10$fNo0PRzR31ogpQWZ/mTmX.BTxy3T9VK0NJFN5rdpeEnKr2/1FZnM6', 'choix1', 'yasmina'),
+(12, 'Fatima', 'regragui', 'fatima', '$2y$10$fRrkHl1n03QGNgw7trjtNu26WtczmB/7LglsFpVI29jcWTvHMZ8kq', 'choix1', 'achmia');
 
 --
 -- Index pour les tables déchargées
@@ -185,25 +200,25 @@ ALTER TABLE `acteurs`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT pour la table `dislikes`
 --
 ALTER TABLE `dislikes`
-  MODIFY `id_dislike` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_dislike` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT pour la table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id_like` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Contraintes pour les tables déchargées

@@ -33,6 +33,7 @@ if(isset($_GET['id']) && !empty($_GET['id']))
            
                 <img class="logoacteur" src="<?php echo $donnees['logo']; ?>" alt="logo_acteur"/> <br/><br/>
                 </div> 
+                </div>
                 <div class="description_acteur">
                    <?php
                         echo '<h2>' . $donnees['acteur'] . '</h2>';
@@ -57,41 +58,29 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                     ?>
 
                     <!--Ajouter un commentaire -->
-                    <div class="vote_boutons"> 
-                        <button class="bouton_comm"><a href='commentaire_post.php?id=<?= $_GET['id']?>';>Nouveau commentaire</a></button>
-
-
-
-                    <!-- section Bouton Like -->
                     <div class="vote_boutons">
-                        <button class="vote_bouton" name="vote" value="like"><a href='action.php?t=1&id=<?= $id; ?>';>
+                        <button class="bouton_comm" onclick= "window.location.href ='commentaire_post.php?id=<?= $_GET['id']?>';"> Nouveau commentaire </button> 
+
+                    <!-- Bouton Like -->
+                    <div class="vote_boutons">
+                        <button class="vote_bouton" name="vote" value="like" onclick= "window.location.href='action.php?t=1&id=<?= $id; ?>';">
                         <img class="iconlike" src="img/like.png" alt="like" style="cursor:pointer">
-                        <?php
-                         $check_like = $bdd->prepare('SELECT id_like FROM likes WHERE acteur_id = ?');
-                         $check_like->execute(array($_GET['id']));
-                         $likes_array = $check_like->fetchAll();
-                         $likes= count($likes_array);
-                         ?>
-                         <?=$likes ?>
-                         </button>
+                        (<?= $likes ?>)
+                        </button>
 
-                    <!-- section Bouton Dislike -->
+                    <!-- Bouton Dislike -->
                     <div class="vote_boutons">
-                        <button class="vote_bouton" name="vote" value="dislike"><a href='action.php?t=2&id=<?= $id; ?>';>
+                        <button class="vote_bouton"  name="vote" value="dislike" onclick= "window.location.href='action.php?t=2&id=<?= $id; ?>';">
                         <img class="iconlike" src="img/dislike.png" alt="dislike" style="cursor:pointer">
-                        <?php
-                         $check_dislike = $bdd->prepare('SELECT id_dislike FROM dislikes WHERE acteur_id = ?');
-                         $check_dislike->execute(array($_GET['id']));
-                         $dislikes_array = $check_dislike->fetchAll();
-                         $dislikes= count($dislikes_array);
-                         ?>
-                         <?=$dislikes ?>
+                        (<?= $dislikes ?>)
                         </button>
                     </div>
                     </div>
                     </div>
                 </div>
-                
+            </div>
+
+
             <!-- Affichage des comm -->
             <div class="affichage_comm">
                 <?php
@@ -113,8 +102,9 @@ if(isset($_GET['id']) && !empty($_GET['id']))
 
                 <?php
                 } // Fin de la boucle des commentaires
-                $req->closeCursor();    
+                $req->closeCursor();
                 ?>
+            </div>
      </aside>
                       
 <?php 

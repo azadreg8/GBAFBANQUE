@@ -1,7 +1,10 @@
 <?php
+session_start();
 $title = 'Inscription';
 require("include/connecbdd.php");
 require_once("include/header_public.php");
+if (isset($_SESSION['id_user'])) 
+header("Location: index_user.php");
 ?>
 
 		<div id="bloc_page">

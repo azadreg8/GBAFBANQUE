@@ -1,8 +1,10 @@
 <?php 
-
+session_start();
 $title = 'Connexion';
 require("include/connecbdd.php");
 require_once("include/header_public.php");
+if (isset($_SESSION['id_user'])) 
+header("Location: index_user.php");
 ?>
 		<div id="bloc_page">
 			<div id="login">

@@ -7,6 +7,8 @@ require_once("include/header_public.php");
 ?>
 <?php
 session_start();
+if (isset($_SESSION['id_user'])) 
+header("Location: index_user.php");
 //si on submit 
 if (isset($_POST['submit']))
 {    
