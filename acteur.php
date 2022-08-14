@@ -65,20 +65,32 @@ if(isset($_GET['id']) && !empty($_GET['id']))
                     <div class="vote_boutons">
                         <button class="vote_bouton" name="vote" value="like" onclick= "window.location.href='action.php?t=1&id=<?= $id; ?>';">
                         <img class="iconlike" src="img/like.png" alt="like" style="cursor:pointer">
-                        (<?= $likes ?>)
-                        </button>
+                        <?php
+                         $check_like = $bdd->prepare('SELECT id_like FROM likes WHERE acteur_id = ?');
+                         $check_like->execute(array($_GET['id']));
+                         $likes_array = $check_like->fetchAll();
+                         $likes= count($likes_array);
+                         ?>
+                         <?=$likes ?>
+                         </button>
+            
 
                     <!-- Bouton Dislike -->
                     <div class="vote_boutons">
                         <button class="vote_bouton"  name="vote" value="dislike" onclick= "window.location.href='action.php?t=2&id=<?= $id; ?>';">
                         <img class="iconlike" src="img/dislike.png" alt="dislike" style="cursor:pointer">
-                        (<?= $dislikes ?>)
+                        <?php
+                         $check_dislike = $bdd->prepare('SELECT id_like FROM likes WHERE acteur_id = ?');
+                         $check_dislike->execute(array($_GET['id']));
+                         $dislikes_array = $check_dislike->fetchAll();
+                         $dislikes= count($dislikes_array);
+                         ?>
+                         <?=$dislikes ?>
                         </button>
                     </div>
                     </div>
                     </div>
                 </div>
-            </div>
 
 
             <!-- Affichage des comm -->
